@@ -48,7 +48,7 @@ const Itemset = styled.div`
   right: 10%;
   ${({ theme }) => theme.mobile`
     margin-top: 5px;
-  `}
+  `} 
 `;
 
 const Item = styled.section`
