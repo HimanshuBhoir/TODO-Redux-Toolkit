@@ -1,0 +1,10 @@
+{
+    "name": "Todo",
+    "description": "Used Redux to help you with TODO",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "author": "Himanshu Bhoir",
+    "action": {
+      "default_popup": "index.html"
+    }
+  }

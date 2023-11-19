@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import media from './styles/media.ts'
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
@@ -11,15 +10,13 @@ function App() {
   return (
     <ThemeProvider theme={{ ...media }}>
       <Router>
-        <div>
-          <Header />
+        <Header />
 
-          <Routes>
-            <Route path="/pending" Component={PendingTodo}/>
-            <Route path="/completed" Component={CompletedTodo} />
-            <Route path="/" Component={AllTodo} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/pending" Component={PendingTodo}/>
+          <Route path="/completed" Component={CompletedTodo} />
+          <Route path="/" Component={AllTodo} />
+        </Routes>
       </Router>
     </ThemeProvider>
   );

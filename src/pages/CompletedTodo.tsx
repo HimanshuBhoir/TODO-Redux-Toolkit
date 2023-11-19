@@ -1,43 +1,88 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../redux/store';
-import { toggleComplete, deleteTodo } from '../redux/todoSlice';
+import { deleteTodo } from '../redux/todoSlice';
+import styled from 'styled-components';
 
-function  CompletedTodo() {
+function CompletedTodo() {
   const completedTodos = useSelector((state: RootState) =>
     state.todos.todos.filter((todo) => todo.completed)
   );
   const dispatch = useDispatch();
-
-  const handleToggleComplete = (id: number) => {
-    dispatch(toggleComplete(id));
-  };
 
   const handleDeleteTodo = (id: number) => {
     dispatch(deleteTodo(id));
   };
 
   return (
-    <div>
-      <h1>Completed Todos</h1>
-      <ul>
+    <CompletedTodosContainer>
+      <Title>Completed Todos</Title>
+      <TodoList>
         {completedTodos.map((todo) => (
-          <li
-            key={todo.id}
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          >
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => handleToggleComplete(todo.id)}
-            />
-            <span>{todo.text}</span>
-            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
-          </li>
+          <TodoItem key={todo.id}>
+            <TodoText completed={todo.completed}>{todo.text}</TodoText>
+            <DeleteButton onClick={() => handleDeleteTodo(todo.id)}>Delete</DeleteButton>
+          </TodoItem>
         ))}
-      </ul>
-    </div>
+      </TodoList>
+    </CompletedTodosContainer>
   );
 }
 
 export default CompletedTodo;
+
+const CompletedTodosContainer = styled.div`
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  color: #333;
+`;
+
+const TodoList = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+const TodoItem = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+const TodoText = styled.span<{ completed:boolean }>`
+  flex: 1;
+  color: #333;
+  ${({ completed }) =>
+    completed &&
+    `
+    text-decoration: line-through;
+    color: #888;
+  `}
+`;
+
+const DeleteButton = styled.button`
+  padding: 5px 10px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff6347;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #cc4c39;
+  }
+`;

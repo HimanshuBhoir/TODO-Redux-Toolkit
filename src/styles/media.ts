@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-const deviceSize = {
+const deviceSize:any = {
   mobile: '420px',
   tablet: '768px',
   laptop: '1025px',
@@ -12,10 +12,10 @@ export const MEDIA_QUERIES = {
   LAPTOP: `screen and (max-width: ${deviceSize.laptop})`,
 };
 
-const media = Object.keys(deviceSize).reduce((acc, label) => {
-  acc[label] = (...args) => css`
+const media = Object.keys(deviceSize).reduce((acc:any, label) => {
+  acc[label] = (...args:any) => css`
     @media screen and (max-width: ${deviceSize[label]}) {
-      ${css(...args)};
+      ${css(args)};
     }
   `;
   return acc;
