@@ -15,9 +15,9 @@ Redux serves as a central data hub in JavaScript apps, ensuring seamless data up
 
 ## Example Implementation 📋
 
-Check out [my deployed project](your-deployed-project-link) using Redux Toolkit to manage state, ensuring real-time updates and efficient data handling.
+Check out [TODO based on Redux Toolkit]([your-deployed-project-link](https://himanshubhoir.github.io/TODO-Redux-Toolkit/)) using Redux Toolkit to manage state, ensuring real-time updates and efficient data handling.
 
-### Code Snippets Overview 📦
+### Code Overview 📦
 
 - Setting up Redux store with configureStore.
 - Defining actions and reducers using createSlice.
