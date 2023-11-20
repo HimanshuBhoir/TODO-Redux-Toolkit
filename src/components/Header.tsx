@@ -21,15 +21,15 @@ const Navbar = () => {
       <MenuButton onClick={toggleMenu}>Menu</MenuButton>
       <Itemset showMenu={showMenu}>
         <Item>
-          <StyledLink to="/TODO-Redux-Toolkit/"> All Todos </StyledLink>
+          <StyledLink to="/"> All Todos </StyledLink>
           <Badge>{allTodos.length}</Badge>
         </Item>
         <Item>
-          <StyledLink to="/TODO-Redux-Toolkit/pending">Pending </StyledLink>
+          <StyledLink to="/pending">Pending </StyledLink>
           <Badge>{pendingTodos.length}</Badge>
         </Item>
         <Item>
-          <StyledLink to="/TODO-Redux-Toolkit/completed">Completed</StyledLink>
+          <StyledLink to="/completed">Completed</StyledLink>
           <Badge>{completedTodos.length}</Badge>
         </Item>
       </Itemset>

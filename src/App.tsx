@@ -9,13 +9,13 @@ import PendingTodo from './pages/PendingTodo';
 function App() {
   return (
     <ThemeProvider theme={{ ...media }}>
-      <Router>
+      <Router basename='/TODO-Redux-Toolkit'>
         <Header />
 
         <Routes>
-          <Route path="/TODO-Redux-Toolkit/pending" Component={PendingTodo}/>
-          <Route path="/TODO-Redux-Toolkit/completed" Component={CompletedTodo} />
-          <Route path="/TODO-Redux-Toolkit/" Component={AllTodo} />
+          <Route path="/pending" Component={PendingTodo}/>
+          <Route path="/completed" Component={CompletedTodo} />
+          <Route path="/" Component={AllTodo} />
         </Routes>
       </Router>
     </ThemeProvider>
