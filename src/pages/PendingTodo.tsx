@@ -44,6 +44,11 @@ const PendingTodosContainer = styled.div`
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+    padding: 10px;
+    width: 80vw;
+    border-radius: 0;
+  }
 `;
 
 const Title = styled.h1`
@@ -54,19 +59,36 @@ const Title = styled.h1`
 const TodoList = styled.ul`
   list-style: none;
   padding: 0;
+  max-height: 76vh;
+  overflow-y: auto;
 `;
 
 const TodoItem = styled.li`
   display: flex;
-  align-items: center;
+  text-align: left;
+  justify-content: space-between;
   padding: 10px;
   margin: 10px 0;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  input[type='checkbox'] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+
+    &:checked {
+      background-color: #5cb85c;
+      border-color: #5cb85c;
+    }
+  }
 `;
 
-const TodoText = styled.span<{completed: boolean}>`
+const TodoText = styled.span<{ completed: boolean}>`
   flex: 1;
   color: #333;
   ${({ completed }) =>
