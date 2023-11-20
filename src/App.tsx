@@ -13,9 +13,9 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/pending" Component={PendingTodo}/>
-          <Route path="/completed" Component={CompletedTodo} />
-          <Route path="/" Component={AllTodo} />
+          <Route path="/TODO-Redux-Toolkit/pending" Component={PendingTodo}/>
+          <Route path="/TODO-Redux-Toolkit/completed" Component={CompletedTodo} />
+          <Route path="/TODO-Redux-Toolkit/" Component={AllTodo} />
         </Routes>
       </Router>
     </ThemeProvider>
